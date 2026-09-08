@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fairpalette.org/schema/attribution-manifest-v0.1.schema.json",
+  "title": "FairPalette Attribution Manifest v0.1",
+  "description": "A declared record of modules and creator attribution for one AI generation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec_version", "generation_id", "base_model", "contributors", "timestamp", "metadata"],
+  "properties": {
+    "spec_version": { "const": "0.1" },
+    "generation_id": { "type": "string", "minLength": 1 },
+    "base_model": { "type": "string", "minLength": 1 },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "metadata": { "type": "object" },
+    "contributors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["artist_id", "module_id", "applied_weight", "license", "metadata"],
+        "properties": {
+          "artist_id": { "type": "string", "minLength": 1 },
+          "module_id": { "type": "string", "minLength": 1 },
+          "applied_weight": { "type": "number", "exclusiveMinimum": 0 },
+          "license": { "type": ["string", "null"], "minLength": 1 },
+          "metadata": { "type": "object" }
+        }
+      }
+    }
+  }
+}

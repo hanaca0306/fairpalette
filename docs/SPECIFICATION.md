@@ -42,45 +42,53 @@ R_i = P_artist * (w_i / Σw)
 
 ```json
 {
+  "spec_version": "0.1",
   "generation_id": "gen_20260526_001",
   "base_model": "sdxl",
   "contributors": [
     {
       "artist_id": "artist_A",
+      "module_id": "lora_A",
       "applied_weight": 0.7,
-      "license": "commercial_allowed"
+      "license": "commercial_allowed",
+      "metadata": {}
     },
     {
       "artist_id": "artist_B",
+      "module_id": "lora_B",
       "applied_weight": 0.3,
-      "license": "noncommercial_only"
+      "license": "noncommercial_only",
+      "metadata": {}
     }
   ],
-  "timestamp": "2026-05-26T12:00:00Z"
+  "timestamp": "2026-05-26T12:00:00Z",
+  "metadata": {}
 }
 ```
+
+The normative machine-readable definition is
+`schema/attribution-manifest-v0.1.schema.json`. In v0.1, weights record declared
+pipeline participation; they are not claims of pixel-level causal contribution.
+SDK validation additionally requires `module_id` values to be unique within a
+manifest.
 
 ---
 
 # Example SDK Direction
 
 ```python
-from fairpalette import AttributionSession
+from fairpalette import AttributionManifest, Contributor
 
-session = AttributionSession(
+manifest = AttributionManifest(
+    generation_id="gen_20260526_001",
     base_model="sdxl",
     contributors=[
-        {"artist": "A", "weight": 0.7},
-        {"artist": "B", "weight": 0.3}
+        Contributor("artist_A", "lora_A", 0.7),
+        Contributor("artist_B", "lora_B", 0.3),
     ]
 )
 
-image = session.generate(
-    prompt="city pop anime illustration"
-)
-
-session.export_manifest()
-session.calculate_royalties()
+manifest.write("manifest.json")
 ```
 
 ---
