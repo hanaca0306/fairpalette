@@ -88,3 +88,12 @@ The exporter writes a format-neutral JSON sidecar. It combines the attribution
 manifest with optional royalty allocations and a generated asset descriptor. The
 descriptor records only the asset filename, detected media type, byte size, and
 SHA-256 digest; it does not leak the local absolute path.
+
+## Attribution Session Manager
+
+The format-neutral session manager owns generation identifiers and enforces a
+small lifecycle: `open` sessions may collect contributors, then transition once
+to either `finalized` or `aborted`. Finalization freezes a stable attribution
+manifest, while aborted sessions remain reserved so generation identifiers
+cannot be silently reused. This lifecycle boundary is designed to feed future
+provenance logging without coupling it to a model runtime.

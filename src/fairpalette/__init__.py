@@ -15,11 +15,20 @@ from .registry import (
     RegistryValidationError,
 )
 from .royalties import RoyaltyAllocation, calculate_royalties
+from .session import (
+    AttributionSession,
+    AttributionSessionError,
+    AttributionSessionManager,
+    SessionState,
+)
 
 __all__ = [
     "AdapterAttribution",
     "AssetDescriptor",
     "AttributionManifest",
+    "AttributionSession",
+    "AttributionSessionError",
+    "AttributionSessionManager",
     "Contributor",
     "CreatorRecord",
     "CreatorRegistry",
@@ -29,6 +38,7 @@ __all__ = [
     "ModuleRegistration",
     "RegistryValidationError",
     "RoyaltyAllocation",
+    "SessionState",
     "calculate_royalties",
     "describe_asset",
     "export_metadata_bundle",

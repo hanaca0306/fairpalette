@@ -16,7 +16,7 @@
 
 - [x] Creator registry structure
 - [x] Metadata export pipeline
-- [ ] Attribution session manager
+- [x] Attribution session manager
 - [ ] Provenance logging system
 
 ---

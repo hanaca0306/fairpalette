@@ -176,6 +176,21 @@ export_metadata_bundle(
 )
 ```
 
+## Attribution session lifecycle
+
+Manage generation identifiers and freeze declared contributors into one stable
+manifest. Sessions can be finalized or aborted, and closed identifiers cannot be
+reused accidentally.
+
+```python
+from fairpalette import AttributionSessionManager, Contributor
+
+manager = AttributionSessionManager(default_base_model="sdxl")
+session = manager.start_session("gen_001", metadata={"pipeline": "demo"})
+session.add_contributor(Contributor("artist_A", "linework", 0.7))
+manifest = manager.finalize_session("gen_001")
+```
+
 ---
 
 # Documentation

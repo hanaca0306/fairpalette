@@ -128,3 +128,18 @@ Local absolute paths and asset bytes are not included.
 
 The normative envelope is defined by
 `schema/metadata-export-v0.1.schema.json`.
+
+---
+
+# Attribution Session Lifecycle v0.1
+
+An attribution session is identified by a unique `generation_id` and begins in
+the `open` state. Only open sessions may record contributors. A session may then
+transition to exactly one terminal state:
+
+- `finalized`, which emits and retains one stable attribution manifest
+- `aborted`, which emits no manifest and may retain a human-readable reason
+
+Generation identifiers remain reserved after either terminal transition. The
+manager does not infer causal contribution; it records declared contributors
+using the same validation rules as the attribution manifest.
