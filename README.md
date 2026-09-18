@@ -143,6 +143,23 @@ session.set_adapters(["linework", "color"], [0.7, 0.3])
 manifest = session.create_manifest("gen_001")
 ```
 
+## Creator registry
+
+Creator identities and their modules can be stored in a portable v0.1 registry.
+Inactive registrations remain auditable but are excluded from new generation
+sessions.
+
+```python
+from fairpalette import CreatorRegistry, DiffusersAttributionSession
+
+registry = CreatorRegistry.read("examples/creator_registry.json")
+session = DiffusersAttributionSession(
+    pipe,
+    base_model="stabilityai/stable-diffusion-xl-base-1.0",
+    adapter_attribution=registry.active_adapter_attribution(),
+)
+```
+
 ---
 
 # Documentation
@@ -152,6 +169,7 @@ manifest = session.create_manifest("gen_001")
 - `docs/ETHICS.md`
 - `docs/ROADMAP.md`
 - `schema/attribution-manifest-v0.1.schema.json`
+- `schema/creator-registry-v0.1.schema.json`
 
 ---
 

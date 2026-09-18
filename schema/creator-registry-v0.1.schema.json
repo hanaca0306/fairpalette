@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fairpalette.org/schema/creator-registry-v0.1.schema.json",
+  "title": "FairPalette Creator Registry v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["registry_version", "creators", "modules", "metadata"],
+  "properties": {
+    "registry_version": { "const": "0.1" },
+    "creators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["creator_id", "display_name", "metadata"],
+        "properties": {
+          "creator_id": { "type": "string", "minLength": 1 },
+          "display_name": { "type": "string", "minLength": 1 },
+          "metadata": { "type": "object" }
+        }
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["module_id", "creator_id", "license", "active", "metadata"],
+        "properties": {
+          "module_id": { "type": "string", "minLength": 1 },
+          "creator_id": { "type": "string", "minLength": 1 },
+          "license": { "type": "string", "minLength": 1 },
+          "active": { "type": "boolean" },
+          "metadata": { "type": "object" }
+        }
+      }
+    },
+    "metadata": { "type": "object" }
+  }
+}
