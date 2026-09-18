@@ -4,10 +4,10 @@
 
 # Phase 1 — Research & Prototype
 
-- [ ] Repository setup
-- [ ] Attribution manifest draft
-- [ ] Royalty logging schema
-- [ ] Python SDK skeleton
+- [x] Repository setup
+- [x] Attribution manifest draft
+- [x] Royalty allocation prototype
+- [x] Python SDK skeleton
 - [ ] Diffusers integration experiment
 
 ---

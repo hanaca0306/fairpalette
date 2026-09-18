@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fairpalette"
+version = "0.1.0"
+description = "Open attribution and royalty infrastructure for generative AI"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "LicenseRef-TBD" }
+authors = [{ name = "FairPalette contributors" }]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fairpalette"]

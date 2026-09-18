@@ -95,6 +95,31 @@ This repository currently serves as:
 - a prototype coordination point
 - an attribution infrastructure experiment
 
+## Prototype quick start
+
+FairPalette now includes an experimental Python SDK and the v0.1 attribution
+manifest JSON Schema. The API is intentionally small while the protocol is under
+discussion.
+
+```bash
+python -m venv .venv
+python -m pip install -e .
+python examples/create_manifest.py
+python -m unittest discover -s tests
+```
+
+```python
+from fairpalette import AttributionManifest, Contributor
+
+manifest = AttributionManifest(
+    generation_id="gen_001",
+    base_model="sdxl",
+    contributors=[Contributor("artist_A", "lora_A", 0.7)],
+)
+
+manifest.write("manifest.json")
+```
+
 ---
 
 # Documentation
@@ -103,6 +128,7 @@ This repository currently serves as:
 - `docs/ARCHITECTURE.md`
 - `docs/ETHICS.md`
 - `docs/ROADMAP.md`
+- `schema/attribution-manifest-v0.1.schema.json`
 
 ---
 
