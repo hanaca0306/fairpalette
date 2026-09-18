@@ -1,6 +1,8 @@
 # fairpalette
 Open attribution and royalty infrastructure for generative AI.
 
+[![Python tests](https://github.com/hanaca0306/fairpalette/actions/workflows/tests.yml/badge.svg)](https://github.com/hanaca0306/fairpalette/actions/workflows/tests.yml)
+
 # FairPalette
 ### Open Attribution & Royalty Infrastructure for Generative AI
 
