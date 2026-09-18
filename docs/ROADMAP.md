@@ -15,7 +15,7 @@
 # Phase 2 — Infrastructure Layer
 
 - [x] Creator registry structure
-- [ ] Metadata export pipeline
+- [x] Metadata export pipeline
 - [ ] Attribution session manager
 - [ ] Provenance logging system
 

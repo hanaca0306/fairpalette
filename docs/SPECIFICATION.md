@@ -116,3 +116,15 @@ The creator registry is a portable JSON document containing:
 Inactive registrations are retained for auditability but must not be activated
 for new generations. The normative JSON shape is defined by
 `schema/creator-registry-v0.1.schema.json`.
+
+---
+
+# Metadata Export v0.1
+
+The metadata export is a JSON sidecar that packages an attribution manifest with
+optional royalty allocations, application metadata, and an asset descriptor. The
+asset descriptor contains its filename, MIME type, byte size, and SHA-256 digest.
+Local absolute paths and asset bytes are not included.
+
+The normative envelope is defined by
+`schema/metadata-export-v0.1.schema.json`.
