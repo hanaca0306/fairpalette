@@ -101,3 +101,18 @@ Potential future metadata support:
 - audit logging
 - creator registry systems
 - generation receipts
+
+---
+
+# Creator Registry v0.1
+
+The creator registry is a portable JSON document containing:
+
+- creator identity records with stable `creator_id` values
+- module registrations that reference a known creator
+- license identifiers and module metadata
+- an `active` consent flag used when creating new attribution sessions
+
+Inactive registrations are retained for auditability but must not be activated
+for new generations. The normative JSON shape is defined by
+`schema/creator-registry-v0.1.schema.json`.

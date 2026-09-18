@@ -1,0 +1,34 @@
+{
+  "creators": [
+    {
+      "creator_id": "artist_A",
+      "display_name": "Artist A",
+      "metadata": {}
+    },
+    {
+      "creator_id": "artist_B",
+      "display_name": "Artist B",
+      "metadata": {}
+    }
+  ],
+  "metadata": {
+    "name": "Example FairPalette registry"
+  },
+  "modules": [
+    {
+      "active": true,
+      "creator_id": "artist_A",
+      "license": "commercial_allowed",
+      "metadata": {},
+      "module_id": "linework"
+    },
+    {
+      "active": true,
+      "creator_id": "artist_B",
+      "license": "commercial_allowed",
+      "metadata": {},
+      "module_id": "color"
+    }
+  ],
+  "registry_version": "0.1"
+}

@@ -74,3 +74,10 @@ accepts the configuration. A manifest can then be emitted for each generation.
 
 This records declared pipeline participation. It does not claim that adapter
 weights measure pixel-level causal contribution.
+
+## Creator Registry
+
+The v0.1 registry separates creator identity records from module registrations.
+Each module points to one creator and carries its license, metadata, and active
+consent state. Only active registrations are exposed to new attribution sessions;
+inactive records remain in the registry for auditability.
