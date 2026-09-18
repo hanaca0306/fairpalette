@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fairpalette.org/schema/metadata-export-v0.1.schema.json",
+  "title": "FairPalette Metadata Export v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format_version", "manifest", "asset", "royalties", "metadata"],
+  "properties": {
+    "format_version": { "const": "0.1" },
+    "manifest": { "type": "object" },
+    "asset": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["filename", "media_type", "size_bytes", "sha256"],
+          "properties": {
+            "filename": { "type": "string", "minLength": 1 },
+            "media_type": { "type": ["string", "null"] },
+            "size_bytes": { "type": "integer", "minimum": 0 },
+            "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+          }
+        }
+      ]
+    },
+    "royalties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["artist_id", "module_id", "amount"],
+        "properties": {
+          "artist_id": { "type": "string", "minLength": 1 },
+          "module_id": { "type": "string", "minLength": 1 },
+          "amount": { "type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$" }
+        }
+      }
+    },
+    "metadata": { "type": "object" }
+  }
+}

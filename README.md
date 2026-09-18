@@ -160,6 +160,22 @@ session = DiffusersAttributionSession(
 )
 ```
 
+## Metadata export
+
+Export a portable JSON sidecar containing the attribution manifest, generated
+asset integrity metadata, optional royalty allocations, and application metadata.
+
+```python
+from fairpalette import export_metadata_bundle
+
+export_metadata_bundle(
+    manifest,
+    "output.fairpalette.json",
+    asset_path="output.png",
+    metadata={"pipeline": "demo"},
+)
+```
+
 ---
 
 # Documentation
@@ -170,6 +186,7 @@ session = DiffusersAttributionSession(
 - `docs/ROADMAP.md`
 - `schema/attribution-manifest-v0.1.schema.json`
 - `schema/creator-registry-v0.1.schema.json`
+- `schema/metadata-export-v0.1.schema.json`
 
 ---
 

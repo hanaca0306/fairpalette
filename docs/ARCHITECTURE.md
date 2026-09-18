@@ -81,3 +81,10 @@ The v0.1 registry separates creator identity records from module registrations.
 Each module points to one creator and carries its license, metadata, and active
 consent state. Only active registrations are exposed to new attribution sessions;
 inactive records remain in the registry for auditability.
+
+## Metadata Export Pipeline
+
+The exporter writes a format-neutral JSON sidecar. It combines the attribution
+manifest with optional royalty allocations and a generated asset descriptor. The
+descriptor records only the asset filename, detected media type, byte size, and
+SHA-256 digest; it does not leak the local absolute path.
