@@ -122,6 +122,27 @@ manifest = AttributionManifest(
 manifest.write("manifest.json")
 ```
 
+## Diffusers adapter tracking
+
+The optional session wrapper records creator attribution when adapters are
+activated. FairPalette does not import or install Diffusers, so the wrapper also
+works with compatible test doubles and pipeline versions.
+
+```python
+from fairpalette import AdapterAttribution, DiffusersAttributionSession
+
+session = DiffusersAttributionSession(
+    pipe,
+    base_model="stabilityai/stable-diffusion-xl-base-1.0",
+    adapter_attribution={
+        "linework": AdapterAttribution("artist_A", "commercial_allowed"),
+        "color": AdapterAttribution("artist_B", "commercial_allowed"),
+    },
+)
+session.set_adapters(["linework", "color"], [0.7, 0.3])
+manifest = session.create_manifest("gen_001")
+```
+
 ---
 
 # Documentation

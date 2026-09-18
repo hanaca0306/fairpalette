@@ -8,7 +8,7 @@
 - [x] Attribution manifest draft
 - [x] Royalty allocation prototype
 - [x] Python SDK skeleton
-- [ ] Diffusers integration experiment
+- [x] Diffusers integration experiment
 
 ---
 

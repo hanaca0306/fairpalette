@@ -64,3 +64,13 @@ The attribution layer records:
 - generation session metadata
 - timestamps
 - optional licensing data
+
+## Diffusers Experiment
+
+`DiffusersAttributionSession` wraps the narrow `set_adapters()` boundary rather
+than taking a dependency on Diffusers itself. Registered creator and licensing
+information is joined with the adapter names and weights only after the pipeline
+accepts the configuration. A manifest can then be emitted for each generation.
+
+This records declared pipeline participation. It does not claim that adapter
+weights measure pixel-level causal contribution.
